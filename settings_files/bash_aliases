@@ -1,0 +1,5 @@
+alias upd='sudo apt update && sudo apt upgrade -y && sudo apt install -f && sudo apt --fix-broken install -y && sudo apt autoclean -y && sudo apt autopurge -y'
+alias ANACONDA='source ~/anaconda3/bin/activate && conda init'
+alias instale='sudo dpkg -i'
+alias desinstale='sudo dpkg -r'
+alias busque='sudo dpkg -l | grep'
