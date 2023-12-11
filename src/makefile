@@ -11,11 +11,15 @@ main:
 	make upd
 	make -f git.mk
 	make upd
+	make -f github_desktop.mk
+	make upd
 	make -f mega.mk
 	make upd
 	make -f appimage.mk
 	make upd
 	make -f balena_etcher.mk
+	make upd
+	make -f discord.mk
 	make upd
 	make -f audacious.mk
 	make upd
