@@ -7,3 +7,13 @@ all:
 	sudo apt install -yf apt-transport-https
 	sudo apt update -y
 	sudo apt install -fy code
+
+clean:
+	sudo apt remove --purge -fy code
+	sudo rm -rf /etc/apt/sources.list.d/vscode*
+	sudo rm -rf /etc/apt/keyrings/packages.microsoft.gpg
+	sudo rm -rf /usr/bin/code /usr/share/code
+	sudo rm -rf /usr/share/*/code*
+	sudo rm -rf /var/lib/*/code*
+	sudo rm -rf ~/.config/code
+	sudo rm -rf /usr/src/*/code

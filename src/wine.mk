@@ -3,3 +3,19 @@ all:
 
 # Wine files are installed in /opt/wine-stable/
 # to choose an specific wine version, add "=<version>" to winehq-stable, wine-stable, wine-stable-amd64 and wine-stable-i386
+
+clean:
+	sudo apt remove --purge -fy winehq-stable wine-stable wine-stable-amd64 wine-stable-i386
+	sudo rm -rf /etc/apt/sources.list.d/wine*
+	sudo rm -rf /etc/apt/keyrings/wine*
+	sudo rm -rf /opt/wine*
+	sudo rm -rf /opt/wine-stable
+	sudo rm -rf ~/*/wine*
+	sudo rm -rf ~/.local/share/*/wine*
+	sudo rm -rf /usr/bin/wine*
+	sudo rm -rf /usr/lib/wine*
+	sudo rm -rf /usr/share/wine*
+	sudo rm -rf /usr/share/*/wine*
+	sudo rm -rf /var/lib/*/wine*
+	sudo rm -rf /var/lib/dpkg/info/wine*
+	sudo rm -rf /var/lib/swcatalog/icons/*/wine*

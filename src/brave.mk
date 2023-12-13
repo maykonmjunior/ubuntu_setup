@@ -7,4 +7,7 @@ getup:
 setup:
 	sudo cp ../settings_files/brave_config ~/.config/BraveSoftware/Brave-Browser/Default/Preferences
 
-
+clean:
+	sudo apt remove --purge -fy brave-browser
+	sudo rm -rf /etc/apt/sources.list.d/brave-browser*
+	sudo rm -rf /usr/share/keyrings/brave-browser*

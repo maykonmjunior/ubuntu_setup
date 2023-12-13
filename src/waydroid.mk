@@ -6,3 +6,15 @@ all:
 # https://ota.waydro.id/system
 # https://ota.waydro.id/vendor
 
+clean:
+	sudo systemctl disable --now waydroid-container
+	sudo apt remove --purge -fy waydroid
+	sudo rm -rf /etc/apt/sources.list.d/waydroid*
+	sudo rm -rf /usr/bin/waydroid /usr/lib/waydroid
+	sudo rm -rf /usr/share/waydroid*
+	sudo rm -rf /usr/share/*/waydroid*
+	sudo rm -rf /var/lib/waydroid*
+	sudo rm -rf /var/lib/*/waydroid*
+	sudo rm -rf /usr/lib/*/waydroid*
+	sudo rm -rf ~/.config/waydroid*
+	sudo rm -rf ~/.local/*/waydroid*	

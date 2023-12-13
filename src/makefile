@@ -14,13 +14,13 @@ install:
 	make upd
 	make -f github_desktop.mk
 	make upd
-	make -f appimage.mk
+	make -f appimage_launcher.mk
 	make upd
 	make -f mega.mk
 	make upd
 	make -f balena_etcher.mk
 	make upd
-# os 3 abaixo precisam de wget
+# os 3 abaixo precisam de wget ou curl
 	make -f whatsapp.mk
 	make upd
 	make -f proton_mail.mk
@@ -33,6 +33,10 @@ install:
 	make -f audacious.mk
 	make upd
 	make -f waydroid.mk
+	make upd
+	make -f wmctrl.mk
+	make upd
+	make -f yt-dlp.mk
 	make upd
 
 get_configs:
