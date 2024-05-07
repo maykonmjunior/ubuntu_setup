@@ -20,14 +20,6 @@ install:
 	make upd
 	make -f balena_etcher.mk
 	make upd
-# os 3 abaixo precisam de wget ou curl
-	make -f whatsapp.mk
-	make upd
-	make -f proton_mail.mk
-	make upd
-	make -f binance.mk
-	make upd
-# volta a funcionar
 	make -f discord.mk
 	make upd
 	make -f audacious.mk
@@ -37,6 +29,15 @@ install:
 	make -f wmctrl.mk
 	make upd
 	make -f yt-dlp.mk
+	make upd
+	make -f OBS_studio.mk
+	make upd
+# os 3 abaixo precisam de wget ou curl
+	make -f whatsapp.mk
+	make upd
+	make -f proton_mail.mk
+	make upd
+	make -f binance.mk
 	make upd
 
 get_configs:
