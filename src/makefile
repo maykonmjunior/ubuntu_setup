@@ -27,14 +27,14 @@ install:
 	make -f whatsapp.mk
 	make -f wmctrl.mk
 	make -f yt-dlp.mk
+	make -f proton_mail.mk
 # make -f balena_etcher.mk
 # make -f waydroid.mk
 # make -f OBS_studio.mk
 # make -f teamviewer.mk
 # make -f wine.mk
-# os abaixo precisam de wget ou curl
-	make -f proton_mail.mk
-	make -f binance.mk
+# não tem api github, então precisaria conseguir extrair o deb da página HTML
+#	make -f binance.mk
 
 get_configs:
 	sudo cp ~/.bash_aliases ../settings_files/bash_aliases
