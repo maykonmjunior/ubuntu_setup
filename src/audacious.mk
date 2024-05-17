@@ -1,6 +1,7 @@
 all:
 	sudo add-apt-repository ppa:ubuntuhandbook1/app
 	sudo apt update -y && sudo apt install -fy audacious
+	make upd
 
 setup:
 	sudo cp ../settings_files/audacious_config ~/.config/audacious/config
@@ -15,3 +16,4 @@ clean:
 	sudo rm -rf /usr/share/*/audacious*
 	sudo rm -rf /usr/share/locale/*/LC_MESSAGES/audacious*
 	sudo rm -rf /var/lib/dpkg/info/audacious*
+	make upd

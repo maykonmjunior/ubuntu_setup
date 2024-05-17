@@ -1,5 +1,6 @@
 all:
 	curl -1sLf \   'https://dl.cloudsmith.io/public/balena/etcher/setup.deb.sh' \   | sudo -E bash && sudo apt update -y && sudo apt install -yf balena-etcher-electron
+	make upd
 
 clean:
 	sudo apt remove --purge -fy balena-etcher-electron
@@ -10,3 +11,4 @@ clean:
 	sudo rm -rf /var/lib/dpkg/info/balena-etcher-electron*
 	sudo rm -rf /opt/balenaEtcher
 	sudo rm -rf ~/.config/balena-etcher-electron
+	make upd

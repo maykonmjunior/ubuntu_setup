@@ -1,22 +1,22 @@
 #!/bin/bash
 
 # Nome do repositório no formato usuario/repositorio
-REPO="timche/gmail-desktop"
+REPO="amanharwara/altus"
 # pasta home do usuário
 HOME_NAME="maykon-marcos-junior"
 # extensão do arquivo
-EXENSION="deb"
+EXENSION="AppImage"
 # nome do arquivo
-FILE_NAME="gmail-desktop"
+FILE_NAME="whatsapp-desktop"
 # Caminho temporário absoluto para salvar o .deb
-TEMP_DEB_PATH="/home/$HOME_NAME/Downloads/$EXENSION/$FILE_NAME.$EXENSION"
+TEMP_DEB_PATH="/home/$HOME_NAME/Downloads/$EXTENSION/$FILE_NAME.$EXENSION"
 
 # Função para obter a URL do último lançamento
 get_latest_release_url() {
     api_url="https://api.github.com/repos/$REPO/releases/latest"
     # descomente a 1ª versão e comente a 2ª, instalando o jq com sudo apt install jq
-    # deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
-    deb_url=$(curl -s $api_url | grep -o 'https://github.com/[^"]*\.deb')
+    # deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".AppImage")) | .browser_download_url')
+    deb_url=$(curl -s $api_url | grep -o 'https://github.com/[^"]*\.AppImage')
     echo $deb_url
 }
 
@@ -42,15 +42,13 @@ install_deb() {
 # Função para desinstalar o aplicativo
 uninstall_app() {
     echo "Desinstalando o aplicativo..."
-    # Substitua 'gmail-desktop' pelo nome real do pacote
-    sudo apt-get remove --purge -y "$FILE_NAME"
-    sudo apt-get autoremove -y  # Remover dependências não mais necessárias
+    rm -f "$TEMP_DEB_PATH"
 }
 
 # Checando argumentos de entrada
 if [ "$1" == "install" ]; then
     download_deb
-    install_deb
+    # install_deb
 elif [ "$1" == "uninstall" ]; then
     uninstall_app
 else
@@ -58,16 +56,14 @@ else
     exit 1
 fi
 
-# Limpando o arquivo .deb temporário
-rm -f "$TEMP_DEB_PATH"
 
 # usage:
 #   => first: to make the script executable
-#   chmod +x gmail.sh
+#   chmod +x name.sh
 #  => then run the script with either of the following commands
-#   ./gmail.sh install
+#   ./name.sh install
 #   or
-#   ./gmail.sh uninstall
+#   ./name.sh uninstall
 
 ### to verify if URL is still valid
-# curl -s https://api.github.com/repos/$REPO/releases/latest | grep "browser_download_url"
+# curl -s https://api.github.com/$REPO/altus/releases/latest | grep "browser_download_url"

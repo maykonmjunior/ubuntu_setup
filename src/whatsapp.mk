@@ -1,5 +1,12 @@
 all:
-	sudo apt install -fy
+	@chmod +x shs/whatsapp.sh
+	@./shs/whatsapp.sh install
+	@make upd
+
+clean:
+	@chmod +x shs/whatsapp.sh
+	@./shs/whatsapp.sh uninstall
+	@make upd
 
 setup:
 	sudo cp ../settings_files/whatsapp ~/.config/Altus/settings.json

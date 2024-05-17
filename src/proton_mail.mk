@@ -1,2 +1,9 @@
 all:
-	sudo apt install -fy
+	@chmod +x shs/proton_mail.sh
+	@./shs/proton_mail.sh install
+	@make upd	
+
+clean:
+	@chmod +x shs/proton_mail.sh
+	@./shs/proton_mail.sh uninstall
+	@make upd

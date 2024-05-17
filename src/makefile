@@ -14,39 +14,27 @@ upd:
 
 install:
 	make upd
-	make -f brave.mk
-	make upd
-	make -f vscode.mk
-	make upd
-	make -f git.mk
-	make upd
-	make -f github_desktop.mk
-	make upd
 	make -f appimage_launcher.mk
-	make upd
+	make -f brave.mk
+	make -f vscode.mk
+	make -f git.mk
+	make -f github_desktop.mk
+	make -f firefox.mk
 	make -f mega.mk
-	make upd
-	make -f balena_etcher.mk
-	make upd
 	make -f gmail.mk
-	make upd
 	make -f discord.mk
-	make upd
 	make -f audacious.mk
-	make upd
-	make -f wmctrl.mk
-	make upd
-	make -f yt-dlp.mk
-	make upd
-	make -f OBS_studio.mk
-	make upd
-# os 3 abaixo precisam de wget ou curl
 	make -f whatsapp.mk
-	make upd
+	make -f wmctrl.mk
+	make -f yt-dlp.mk
+# make -f balena_etcher.mk
+# make -f waydroid.mk
+# make -f OBS_studio.mk
+# make -f teamviewer.mk
+# make -f wine.mk
+# os abaixo precisam de wget ou curl
 	make -f proton_mail.mk
-	make upd
 	make -f binance.mk
-	make upd
 
 get_configs:
 	sudo cp ~/.bash_aliases ../settings_files/bash_aliases
@@ -58,7 +46,8 @@ get_configs:
 	make -f brave.mk getup
 	make -f whatsapp.mk getup
 
-load_configs:
+# TODO
+__load_configs:
 #	setup bash aliases
 	sudo cp ../settings_files/bash_aliases ~/.bash_aliases
 #	setup gnome configs

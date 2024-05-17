@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Nome do repositório no formato usuario/repositorio
-REPO="timche/gmail-desktop"
+REPO="vladimiry/ElectronMail"
 # pasta home do usuário
 HOME_NAME="maykon-marcos-junior"
 # extensão do arquivo
 EXENSION="deb"
 # nome do arquivo
-FILE_NAME="gmail-desktop"
+FILE_NAME="proton-mail-desktop"
 # Caminho temporário absoluto para salvar o .deb
 TEMP_DEB_PATH="/home/$HOME_NAME/Downloads/$EXENSION/$FILE_NAME.$EXENSION"
 
@@ -15,8 +15,8 @@ TEMP_DEB_PATH="/home/$HOME_NAME/Downloads/$EXENSION/$FILE_NAME.$EXENSION"
 get_latest_release_url() {
     api_url="https://api.github.com/repos/$REPO/releases/latest"
     # descomente a 1ª versão e comente a 2ª, instalando o jq com sudo apt install jq
-    # deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
-    deb_url=$(curl -s $api_url | grep -o 'https://github.com/[^"]*\.deb')
+    deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith("amd64.deb")) | .browser_download_url')
+    # deb_url=$(curl -s $api_url | grep -o 'https://github.com/[^"]*\.deb')
     echo $deb_url
 }
 
