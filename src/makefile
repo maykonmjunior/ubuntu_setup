@@ -1,5 +1,13 @@
 all:
-	python3 info.py
+	@echo "options:"
+	@echo "--> make install                  = install all suported apps"
+	@echo "--> make get_configs              = get settings from current sistem"
+	@echo "--> make load_configs             = load settings into current sistem"
+	@echo "--> make setup                    = settings setup for all apps"
+	@echo "--> make -f <file_name>.mk        = install the associated app"
+	@echo "--> make -f <file_name>.mk clean  = uninstall the associated app"
+	@echo "--> make remove_snap              = remove snap packages"
+	@echo "--> make upd                      = update the sistem"
 
 upd:
 	sudo apt update && sudo apt upgrade -y && sudo apt install -f && sudo apt --fix-broken install -y && sudo apt autoclean -y && sudo apt autopurge -y
@@ -20,11 +28,11 @@ install:
 	make upd
 	make -f balena_etcher.mk
 	make upd
+	make -f gmail.mk
+	make upd
 	make -f discord.mk
 	make upd
 	make -f audacious.mk
-	make upd
-	make -f waydroid.mk
 	make upd
 	make -f wmctrl.mk
 	make upd

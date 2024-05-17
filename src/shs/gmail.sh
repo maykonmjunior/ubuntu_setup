@@ -4,14 +4,14 @@
 REPO="timche/gmail-desktop"
 
 # Caminho temporário absoluto para salvar o .deb
-TEMP_DEB_PATH="/tmp/gmail-desktop.deb"
+TEMP_DEB_PATH="/tmp/gmail-desktop-2.25.3-linux.deb"
 
 # Função para obter a URL do último lançamento
 get_latest_release_url() {
-    echo "Obtendo a URL do último lançamento..."
     api_url="https://api.github.com/repos/$REPO/releases/latest"
-    deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
-#    deb_url=$(curl -s $api_url | grep "browser_download_url.*.deb" | cut -d '"' -f 4)
+    # descomente a 1ª versão e comente a 2ª, instalando o jq com sudo apt install jq
+    # deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
+    deb_url=$(curl -s $api_url | grep -o 'https://github.com/[^"]*\.deb')
     echo $deb_url
 }
 
@@ -32,9 +32,6 @@ install_deb() {
     echo "Instalando o pacote .deb..."
     sudo dpkg -i "$TEMP_DEB_PATH"
     sudo apt-get install -f -y  # Instalar dependências faltantes, se houver
-    # Limpando o arquivo .deb temporário
-    rm -f "$TEMP_DEB_PATH"
-
 }
 
 # Função para desinstalar o aplicativo
@@ -56,6 +53,8 @@ else
     exit 1
 fi
 
+# Limpando o arquivo .deb temporário
+rm -f "$TEMP_DEB_PATH"
 
 # usage:
 #   => first: to make the script executable
