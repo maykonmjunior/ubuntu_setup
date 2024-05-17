@@ -4,7 +4,6 @@ all:
 	@make upd
 
 clean:
-	@chmod +x shs/whatsapp.sh
 	@./shs/whatsapp.sh uninstall
 	@make upd
 

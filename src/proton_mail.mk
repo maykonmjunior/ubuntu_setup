@@ -4,6 +4,5 @@ all:
 	@make upd	
 
 clean:
-	@chmod +x shs/proton_mail.sh
 	@./shs/proton_mail.sh uninstall
 	@make upd

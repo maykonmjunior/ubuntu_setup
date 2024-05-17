@@ -1,6 +1,9 @@
 all:
-	sudo apt install -fy
-	make upd
+	@python3 shs/binance.py
+#	@chmod +x shs/binance.sh
+#	@./shs/binance.sh install
+#	@make upd
 
 clean:
-	make upd
+	@./shs/binance.sh uninstall
+	@make upd
