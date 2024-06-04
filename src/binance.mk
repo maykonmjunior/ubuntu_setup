@@ -1,9 +1,10 @@
 all:
-	@python3 shs/binance.py
+	@echo "not impplemented yet"
+#	@python3 shs/binance.py
 #	@chmod +x shs/binance.sh
 #	@./shs/binance.sh install
-#	@make upd
+	@make upd
 
 clean:
-	@./shs/binance.sh uninstall
+#	@./shs/binance.sh uninstall
 	@make upd
