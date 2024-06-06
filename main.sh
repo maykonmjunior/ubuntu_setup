@@ -23,6 +23,7 @@ function install() {
         "mega"
         "proton_mail"
         "teamviewer"
+        "unity"
         "vscode"
         "waydroid"
         "whatsapp"
