@@ -1,22 +1,20 @@
 #!/bin/bash
 
 # Nome do repositório no formato usuario/repositorio
-REPO="vladimiry/ElectronMail"
+REPO="ProtonMail/proton-bridge"
 # pasta home do usuário
-HOME_NAME="maykon-marcos-junior"
+HOME_NAME="$(whoami)"
 # extensão do arquivo
-EXENSION="deb"
+EXTENSION="deb"
 # nome do arquivo
-FILE_NAME="proton-mail-desktop"
+FILE_NAME="proton-bridge"
 # Caminho temporário absoluto para salvar o .deb
-TEMP_DEB_PATH="/home/$HOME_NAME/Downloads/$EXENSION/$FILE_NAME.$EXENSION"
+TEMP_DEB_PATH="/home/$HOME_NAME/Downloads/$EXTENSION/$FILE_NAME.$EXTENSION"
 
 # Função para obter a URL do último lançamento
 get_latest_release_url() {
     api_url="https://api.github.com/repos/$REPO/releases/latest"
-    # descomente a 1ª versão e comente a 2ª, instalando o jq com sudo apt install jq
-    deb_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith("amd64.deb")) | .browser_download_url')
-    # deb_url=$(curl -s $api_url | grep -o 'https://github.com/[^"]*\.deb')
+    deb_url=$(curl -s $api_url | grep -E 'browser_download_url.*\.deb"' | cut -d '"' -f 4)
     echo $deb_url
 }
 
@@ -28,7 +26,6 @@ download_deb() {
         exit 1
     fi
     echo "Baixando o pacote da URL: $deb_url"
-#    wget -O "$TEMP_DEB_PATH" "$deb_url"
     curl -L -o "$TEMP_DEB_PATH" "$deb_url"
 }
 
@@ -42,9 +39,10 @@ install_deb() {
 # Função para desinstalar o aplicativo
 uninstall_app() {
     echo "Desinstalando o aplicativo..."
-    # Substitua 'gmail-desktop' pelo nome real do pacote
     sudo apt-get remove --purge -y "$FILE_NAME"
-    sudo apt-get autoremove -y  # Remover dependências não mais necessárias
+    sudo apt-get autopurge -y  # Remover dependências não mais necessárias
+    # Limpando o arquivo .deb temporário
+    rm -f "$TEMP_DEB_PATH"
 }
 
 # Checando argumentos de entrada
@@ -57,17 +55,3 @@ else
     echo "Uso: $0 {install|uninstall}"
     exit 1
 fi
-
-# Limpando o arquivo .deb temporário
-rm -f "$TEMP_DEB_PATH"
-
-# usage:
-#   => first: to make the script executable
-#   chmod +x gmail.sh
-#  => then run the script with either of the following commands
-#   ./gmail.sh install
-#   or
-#   ./gmail.sh uninstall
-
-### to verify if URL is still valid
-# curl -s https://api.github.com/repos/$REPO/releases/latest | grep "browser_download_url"
