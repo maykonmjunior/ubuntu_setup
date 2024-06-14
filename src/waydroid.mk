@@ -1,7 +1,6 @@
 all:
 	sudo apt install curl ca-certificates -fy && curl https://repo.waydro.id | sudo bash && sudo apt install waydroid -fy
 	sudo systemctl enable --now waydroid-container
-	make upd
 
 # If prompted, use the following links for System OTA and Vendor OTA:
 # https://ota.waydro.id/system
@@ -19,4 +18,3 @@ clean:
 	sudo rm -rf /usr/lib/*/waydroid*
 	sudo rm -rf ~/.config/waydroid*
 	sudo rm -rf ~/.local/*/waydroid*
-	make upd	

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function upd() {
-    sudo apt update && sudo apt upgrade -y && sudo apt install -f && sudo apt --fix-broken install -y && sudo apt autoclean -y && sudo apt autopurge -y
+    sudo apt update && sudo apt upgrade -y && apt list --upgradable | sudo apt install -fy && sudo apt autoclean -y && sudo apt autopurge -y
 }
 
 function install() {
@@ -38,6 +38,7 @@ function install() {
             # Aqui você pode adicionar o comando para instalar o aplicativo específico
             echo "Instalando $app..."
             make -f src/$app.mk
+            sudo apt update -y
         else
             echo "Ignorando a instalação de $app."
         fi

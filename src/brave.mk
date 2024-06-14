@@ -12,4 +12,3 @@ clean:
 	sudo apt remove --purge -fy brave-browser
 	sudo rm -rf /etc/apt/sources.list.d/brave-browser*
 	sudo rm -rf /usr/share/keyrings/brave-browser*
-	make upd

@@ -3,7 +3,6 @@ all:
 	sudo add-apt-repository ppa:appimagelauncher-team/stable
 	sudo apt update -y
 	sudo apt install -yf appimagelauncher
-	make upd
 
 setup:
 	sudo cp ../settings_files/appimagelauncher.cfg ~/.config/appimagelauncher.cfg
@@ -18,4 +17,3 @@ clean:
 	sudo rm -rf /usr/bin/appimagelauncherd /usr/lib/x86_64-linux-gnu/appimagelauncher /usr/share/appimagelauncher
 	sudo rm -rf /usr/share/*/appimagelauncher*
 	sudo rm -rf /var/lib/dpkg/info/appimagelauncher*
-	make upd

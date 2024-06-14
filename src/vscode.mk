@@ -7,7 +7,6 @@ all:
 	sudo apt install -yf apt-transport-https
 	sudo apt update -y
 	sudo apt install -fy code
-	make upd
 
 clean:
 	sudo apt remove --purge -fy code
@@ -18,4 +17,3 @@ clean:
 	sudo rm -rf /var/lib/*/code*
 	sudo rm -rf ~/.config/code
 	sudo rm -rf /usr/src/*/code
-	make upd

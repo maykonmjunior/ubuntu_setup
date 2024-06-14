@@ -5,14 +5,12 @@ all:
 #	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl 
 	sudo chmod a+rx /usr/local/bin/yt-dlp
 	sudo apt install -fy ffmpeg
-	make upd
 
 clean:
 	sudo apt remove --purge -fy yt-dlp ffmpeg
 	sudo rm -rf /usr/local/bin/yt-dlp
 	sudo rm -rf /usr/bin/ffmpeg /usr/share/ffmpeg /usr/share/man/man1/ffmpeg.1.gz
 	sudo rm -rf /etc/apt/sources.list.d/tomtomtom-ubuntu-yt-dlp*
-	make upd
 
 # Usage:
 
