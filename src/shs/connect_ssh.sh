@@ -50,3 +50,15 @@ ssh-copy-id "$USER_SERVER"
 # Conectar ao servidor remoto
 echo "Conectando ao servidor remoto..."
 ssh "$USER_SERVER"
+
+# Para copiar um arquivo do computador local para o remoto:
+# scp /caminho/local/arquivo.csv usuario@ip_do_computador_remoto:/caminho/destino/
+
+# Para copiar um arquivo do computador remoto para o local:
+# scp usuario@ip_do_computador_remoto:/caminho/remoto/arquivo.csv /caminho/destino/local/
+
+# Exemplo prático:
+# Se você quiser copiar um arquivo dados.csv do seu computador local para a pasta /home/user em um servidor remoto, use:
+# scp dados.csv usuario@192.168.1.100:/home/user/
+
+
