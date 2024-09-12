@@ -3,7 +3,7 @@
 # Nome do repositório no formato usuario/repositorio
 REPO="timche/gmail-desktop"
 # pasta home do usuário
-HOME_NAME="maykon-marcos-junior"
+HOME_NAME=$(whoami) #"maykon-marcos-junior"
 # extensão do arquivo
 EXENSION="deb"
 # nome do arquivo
