@@ -1,5 +1,5 @@
 all:
-	sudo add-apt-repository ppa:git-core/ppa && sudo apt update -y && sudo apt install -fy git
+	sudo add-apt-repository ppa:git-core/ppa && sudo apt update -y && sudo apt install -fy git git-lfs
 
 clean:
 	sudo apt remove --purge -fy git
