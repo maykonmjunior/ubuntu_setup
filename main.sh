@@ -1,50 +1,51 @@
 #!/bin/bash
 
 function upd() {
-    sudo apt update && sudo apt upgrade -y && apt list --upgradable | sudo apt install -fy && sudo apt autoclean -y && sudo apt autopurge -y
+    sudo apt update && sudo apt upgrade -y && sudo apt install -fy && sudo apt --fix-broken install -y && sudo apt autoclean -y && sudo apt autopurge -y
 }
 
 function install() {
+	sudo apt install -f make
     upd
-
     # Lista de aplicativos a serem instalados
     apps=(
         "appimage_launcher"
         "audacious"
-        "balena-etcher"
-        "binance"
-        "blender"
+        #"balena-etcher"
+        #"binance"
+        #"blender"
         "brave"
         "discord"
         "firefox"
         "git"
         "github_desktop"
         "gmail"
-        "mega"
+        #"mega"
         "nvidia"
-        "proton_mail"
-        "rclone"
+        #"proton_mail"
+        #"rclone"
+        "orange"
         "rust"
-        "teamviewer"
-        "unity"
+        #"teamviewer"
+        #"unity"
         "vscode"
-        "waydroid"
+        #"waydroid"
         "whatsapp"
-        "wine"
+        #"wine"
         "wmctrl"
         "yt-dlp"
     )
 
     for app in "${apps[@]}"; do
-        read -p "Deseja instalar o aplicativo $app? (y/n) " confirm
-        if [[ $confirm == "y" || $confirm == "Y" ]]; then
-            # Aqui você pode adicionar o comando para instalar o aplicativo específico
-            echo "Instalando $app..."
-            make -f src/$app.mk
-            sudo apt update -y
-        else
-            echo "Ignorando a instalação de $app."
-        fi
+        #read -p "Deseja instalar o aplicativo $app? (y/n) " confirm
+        #if [[ $confirm == "y" || $confirm == "Y" ]]; then
+        # Aqui você pode adicionar o comando para instalar o aplicativo específico
+        echo "Instalando $app..."
+        make -f src/$app.mk
+        sudo apt update -y
+        #else
+        #    echo "Ignorando a instalação de $app."
+        #fi
     done
 }
 

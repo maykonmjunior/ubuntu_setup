@@ -1,6 +1,6 @@
 all:
-	@chmod +x shs/whatsapp.sh
-	@./shs/whatsapp.sh install
+	@chmod +x src/shs/whatsapp.sh
+	@./src/shs/whatsapp.sh install
 
 clean:
 	@./shs/whatsapp.sh uninstall

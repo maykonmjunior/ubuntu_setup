@@ -1,6 +1,6 @@
 all:
-	@chmod +x shs/gmail.sh
-	@./shs/gmail.sh install
+	@chmod +x src/shs/gmail.sh
+	@./src/shs/gmail.sh install
 
 clean:
 	@./shs/gmail.sh uninstall
